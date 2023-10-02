@@ -9,12 +9,15 @@ import java.util.List;
 
 @Service
 public class ImplUserService implements UserService {
+    
     @Autowired
     private UserRepository userRepository;
+    
     @Override
     public User findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
+    
     @Override
     public List<User> findAll() {
         return userRepository.findAll();
