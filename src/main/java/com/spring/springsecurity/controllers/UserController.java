@@ -15,8 +15,10 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 @RequestMapping("/v6/springSecurity/users")
 public class UserController {
+   
     @Autowired
     private UserService userService;
+   
     @GetMapping("/findAll")
     public ResponseEntity<List<User>> findAll() {
         try {
