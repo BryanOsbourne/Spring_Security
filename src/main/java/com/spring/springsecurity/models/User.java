@@ -20,13 +20,16 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer UUID;
+   
     @Column(length = 50, unique = true)
     private String username;
+   
     private String password;
+    
     @Enumerated(EnumType.STRING)
     private Rol rol;
     // ADD FIELDS
-
+    
     @Override
     @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
