@@ -20,7 +20,9 @@ import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtService jwtService;
+    
     private final UserDetailsService userDetailsService;
+    
     @Override
     protected void doFilterInternal(
             @NotNull HttpServletRequest request,
