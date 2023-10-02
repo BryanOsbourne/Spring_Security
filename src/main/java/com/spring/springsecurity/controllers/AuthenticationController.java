@@ -15,10 +15,13 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/v6/springSecurity/authentication")
-public class AuthenticationController {
+public class AuthenticationController { 
+    
     @Autowired
     private AuthenticationService authenticationService;
+    
     private final Logger LOGGER = LoggerFactory.getLogger(AuthenticationController.class);
+   
     @PostMapping("/create")
     @PreAuthorize("hasRole('ADMINISTRADOR')")
     public ResponseEntity<User> create(@RequestBody User user) {
@@ -28,6 +31,7 @@ public class AuthenticationController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+    
     @PostMapping("/update")
     public ResponseEntity<User> update(@RequestBody User request) {
         try {
@@ -36,6 +40,7 @@ public class AuthenticationController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+    
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) {
         try {
@@ -44,6 +49,7 @@ public class AuthenticationController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+    
     @PostMapping("/recover")
     public ResponseEntity<Boolean> recover(@RequestBody String username) {
         try {
