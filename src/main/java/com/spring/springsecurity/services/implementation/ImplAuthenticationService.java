@@ -36,6 +36,7 @@ public class ImplAuthenticationService implements AuthenticationService {
             return userRepository.save(request);
         }
     }
+   
     @Override
     @Transactional
     public User update(User request) {
@@ -54,6 +55,7 @@ public class ImplAuthenticationService implements AuthenticationService {
         }
         return user;
     }
+   
     @Override
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
         authenticationManager.authenticate(
@@ -72,6 +74,7 @@ public class ImplAuthenticationService implements AuthenticationService {
                 .user(user)
                 .build();
     }
+   
     @Override
     @Transactional
     public Boolean recover(String username) {
